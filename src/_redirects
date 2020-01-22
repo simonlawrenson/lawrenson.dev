@@ -1,0 +1,9 @@
+# *** Warning! Your custom domain is not using HTTPS yet ***
+# These rules will change if you change your site’s custom domains or HTTPS settings
+
+# Redirect domain aliases to primary domain
+http://www.lawro.dev/* http://lawrenson.dev/:splat 301!
+http://lawro.dev/* http://lawrenson.dev/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+http://lawrenson.netlify.com/* http://lawrenson.dev/:splat 301!
