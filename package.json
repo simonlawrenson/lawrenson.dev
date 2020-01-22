@@ -26,6 +26,7 @@
     "animejs": "^3.1.0",
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.2.39",
+    "gatsby-plugin-google-tagmanager": "^2.1.24",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.1.27",
