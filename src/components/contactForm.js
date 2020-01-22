@@ -20,7 +20,8 @@ export default class IndexPage extends React.Component {
   }
   render() {
     return (
-      <form method="POST" action="https://formspree.io/xdoepzvv" className="contact-form">
+      <form method="post" action="/thanks" name="contact" data-netlify="true" data-netlify-honeypot="bot-field" className="contact-form">
+        <input type="hidden" name="form-name" value="contact" />
         <p>
           <label for="name">
             <span class="label">Name*</span>
@@ -40,8 +41,6 @@ export default class IndexPage extends React.Component {
           </label>
         </p>
         <p>
-          <input type="text" name="_gotcha" style={{ display: 'none' }} />
-          <input type="hidden" name="_next" value="/thanks"/>
           <button type="submit">Let's talk!</button>
         </p>
       </form>
