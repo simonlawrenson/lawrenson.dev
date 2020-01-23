@@ -170,8 +170,8 @@ button,
 }
 
 .col {
-  max-width: 100%;
-  width: auto;
+  // max-width: 100%;
+  // width: auto;
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
   -ms-flex-positive: 1;
@@ -224,7 +224,6 @@ button,
   font-size: 3rem;
   font-weight: 100;
   text-align: right;
-  margin-left: auto;
 }
 
 .welcome-intro {
