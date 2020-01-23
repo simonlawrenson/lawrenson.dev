@@ -1,10 +1,9 @@
 import React from "react"
-import { graphql } from "gatsby"
 import SEO from "../components/SEO"
 import Layout from "../components/layout"
-import ProjectComponent from "../components/projectComponent"
+import ProjectSlider from "../components/projectSlider"
 
-export default ({ data }) =>
+export default () =>
   <Layout>
     <SEO
       title="Projects"
@@ -15,28 +14,8 @@ export default ({ data }) =>
         <h1>Projects</h1>
         <p>These are some of my recent projects</p>
       </div>
-      <ProjectComponent
-        name="Institute of Somatic Sexology"
-        domain="https://instituteofsomaticsexology.com/"
-        img={data.file.childImageSharp.fluid.src}
-        cms="CMS: WordPress (Sage starter theme by Roots)"
-        js="Libraries: GSAP (Anime.js &amp; ScrollMagic)"
-        designLink="https://www.behance.net/georgiav134fde"
-        designText="Georgia Vincent Design"
-        awardLink="https://www.typewolf.com/site-of-the-day/institute-of-somatic-sexology"
-        awardText="Typewolf Site of the Day"
-        ></ProjectComponent>
+      <div class="col">
+        <ProjectSlider />
+      </div>
     </div>
   </Layout>
-
-export const query = graphql`
-  query {
-    file(relativePath: { eq: "project-previews/instituteofsomaticsexology.png"}) {
-      childImageSharp {
-        fluid( maxWidth: 700 ) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`

@@ -1,9 +1,10 @@
 import React from "react"
+import Img from "gatsby-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../utils/fontawesome'
 
 export default ( props ) => (
-  <div className="col">
+  <div className={"project-slide " + props.class}>
     <div className="project-tech-title">
       <h2>{props.name}</h2>
       <p><span className="spacer">|</span>
@@ -14,15 +15,14 @@ export default ( props ) => (
     </div>
     <div className="project-component-container">
       <div className="col col-gutter-right">
-        <img src={ props.img } alt={ props.name + " project preview" } />
+        <Img fluid={ props.img } />
       </div>
       <div className="col col-gutter-left ">
         <h3 className="project-tech">Tech:</h3>
-        <p className="project-tech-list">{ props.cms }</p>
-        <p className="project-tech-list">{ props.js }</p>
-        <p className="project-tech-list">{ props.design }Design: <a href={ props.designLink } title="Visit site" rel="nofollow noopener noreferrer" target="_blank">{ props.designText }</a></p>
-        <p className="project-tech-list">Awards: <a href={ props.awardLink } title="Visit site" rel="nofollow noopener noreferrer" target="_blank">{ props.awardText }</a></p>
-        <a href="/next-project" className="project-next" title="Next project">Next project <FontAwesomeIcon icon={['far', 'long-arrow-alt-right']} /></a>
+        <p className="project-tech-list" style={{display: !props.cms && "none"}}>{ props.cms }</p>
+        <p className="project-tech-list" style={{display: !props.js && "none"}}>{ props.js }</p>
+        <p className="project-tech-list" style={{display: !props.designLink && "none"}}>Design: <a href={ props.designLink } title="Visit site" rel="nofollow noopener noreferrer" target="_blank">{ props.designText }</a></p>
+        <p className="project-tech-list" style={{display: !props.awardLink && "none"}}>Awards: <a href={ props.awardLink } title="Visit site" rel="nofollow noopener noreferrer" target="_blank">{ props.awardText }</a></p>
       </div>
     </div>
   </div>

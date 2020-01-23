@@ -278,6 +278,61 @@ button,
   }
 }
 
+.container-projects > .col {
+  max-width: 50%;
+}
+
+.project-slider {
+  display: block;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .slick-next {
+    width: auto;
+    height: auto;
+    position: absolute;
+    color: $brandWhite;
+    top: auto;
+    top: initial;
+    right: 0;
+    bottom: -10px;
+    left: auto;
+    left: initial;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    &:before {
+      content: " ";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: $brandWhite;
+      visibility: hidden;
+      transition: all 0.3 ease-in;
+    }
+
+    &:hover {
+      color: $brandWhite;
+    }
+    
+    &:hover {
+      text-decoration: none;
+      
+      &:before {
+        visibility: visible;
+        width: 100%;
+        transition: all 0.3s ease-out;
+      }
+    }
+  }
+  .slick-prev {
+    display: none;
+  }
+}
+
 .project-component-container,
 .project-tech-title {
   display: -ms-flexbox;
@@ -384,3 +439,7 @@ button,
 .container-footer p {
   margin-bottom: 0;
 }
+
+/****************************************
+ * Animation Styling
+ ***************************************/
