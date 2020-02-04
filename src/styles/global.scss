@@ -32,6 +32,11 @@ $font-size-sm: 0.875rem;
 $font-size-md: 1rem;
 $font-size-lg: 20px;
 
+$screen-size-xl: 1200px;
+$screen-size-lg: 992px;
+$screen-size-md: 768px;
+$screen-size-sm: 576px;
+
 /****************************************
  * General Styling
  ***************************************/
@@ -113,6 +118,12 @@ h6,
 h1,
 h1 {
   font-size: 4.5rem;
+  
+  @media (max-width: $screen-size-md - 1) {
+    font-size: 3rem;
+    margin-top: 14px;
+    margin-bottom: 1rem;
+  }
 }
 
 button,
@@ -131,6 +142,11 @@ button,
     box-shadow: inset 250px 0 0 0 $brandSecondary;
     transition: all 0.3s ease-in;
   }
+
+  .page-intro & {
+    font-size:  1rem;
+    font-weight: 700;
+  }
 }
 
 /****************************************
@@ -139,22 +155,41 @@ button,
 .container {
   width: 100%;
   max-width: 1440px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   margin: 0 auto;
-  padding: 0 60px;
+  padding-right: 15px;
+  padding-left: 15px;
+  
+  @media (min-width: $screen-size-md) {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  
+  @media (min-width: $screen-size-lg) {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  
+  @media (max-width: $screen-size-md - 1) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   
   &-logo,
   &-footer {
-    height: 100px;
     -ms-flex-pack: center;
     justify-content: space-between;
     -ms-flex-align: center;
     align-items: center;
+    
+    @media (min-width: $screen-size-md) {
+      height: 100px;
+    }
   }
-
+  
   &-welcome,
   &-projects,
   &-tech,
@@ -164,8 +199,20 @@ button,
     -webkit-box-direction: reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
-    -ms-flex-align: center;
-    align-items: center;
+    @media (min-width: $screen-size-md ) {
+      -ms-flex-align: center;
+      align-items: center;
+    }
+  }
+
+  &-projects {
+    @media (max-width: $screen-size-lg - 1 ) {
+      -ms-flex-align: normal;
+      align-items: normal;
+    }
+  }
+}
+
 .page-container {
   width: 100%;
   min-height: calc(100vh - 200px);
@@ -470,61 +517,49 @@ button,
   font-size: 3rem;
   font-weight: 100;
   text-align: right;
-}
 
-.welcome-intro {
-  width: 100%;
-  
-  p {
-    font-size: 3rem;
-    max-width: 90%;
-    margin-left: auto;
+  @media (min-width: $screen-size-md) {
+    .container-welcome & {
+      max-width: 90%;
+      margin-left: auto;
+    }
+  }
+  @media (max-width: $screen-size-lg - 1) {
+    margin-bottom: 2rem;
+  }
+  @media (max-width: $screen-size-md - 1) {
+    width: calc(100% - 35px);
+    font-size: 1.875rem;
+    text-align: left;
+    margin-right: auto;
   }
 }
-
-// .tech-list-container {
-//   display: -ms-flexbox;
-//   display: flex;
-//   -ms-flex-wrap: wrap;
-//   flex-wrap: wrap;
-
-//   .tech-component-container {
-//     max-width: 50%;
-//     width: 50%;
-//     -ms-flex: 0 0 50%;
-//     flex: 0 0 50%;
-
-//     svg {
-//       margin-bottom: .5rem;
-//     }
-//   }
-// }
-
-// .tech-component-container {
-//   text-align: center;
-
-//   svg {
-//     font-size: 72px;
-//   }
-// }
 
 .tech-label {
-  display: block;
+  display: inline-block;
   font-size: 3rem;
-  text-align: center;
-  margin-bottom: 0.75rem;
-
-  &:nth-of-type(odd) {
-    margin-right: 25%;
+  margin-right: 10px;
+  @media (min-width: $screen-size-md) {
+    text-align: center;
   }
-  
-  &:nth-of-type(even) {
-    margin-left: 25%;
+  @media (min-width: $screen-size-lg) {
+    display: block;
+    margin-bottom: 0.75rem;
+
+    &:nth-of-type(odd) {
+      margin-right: 25%;
+    }
+    
+    &:nth-of-type(even) {
+      margin-left: 25%;
+    }
   }
 }
 
 .container-projects > .col {
-  max-width: 50%;
+  @media (min-width: $screen-size-lg) {
+    max-width: 50%;
+  }
 }
 
 .project-slider {
@@ -559,7 +594,8 @@ button,
       transition: all 0.3 ease-in;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $brandWhite;
     }
     
@@ -578,14 +614,32 @@ button,
   }
 }
 
-.project-component-container,
+.project-tech {
+  @media (max-width: $screen-size-lg - 1) {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.project-component-container {
+  @media (min-width: $screen-size-lg) {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
 .project-tech-title {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -ms-flex-align: center;
-  align-items: center;
+  @media (min-width: $screen-size-sm) {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+  }
 }
 .project-component-container {
   -ms-flex-align: stretch;
@@ -596,11 +650,18 @@ button,
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
+    
+    @media (min-width: $screen-size-md) {
+      padding-left: 0;
+    }
   }
 }
 
 .project-tech-title .spacer {
-  margin: 0 15px;
+  margin: 0 15px 0 0;
+  @media (min-width: $screen-size-sm) {
+    margin: 0 15px;
+  }
 }
 
 .project-tech-list {
@@ -621,6 +682,10 @@ button,
  ***************************************/
 .contact-form {
   margin-bottom: 0;
+
+  @media (max-width: $screen-size-md - 1) {
+    margin-bottom: 1rem;
+  }
 
   .label {
     display: block;
@@ -688,3 +753,14 @@ button,
 /****************************************
  * Animation Styling
  ***************************************/
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
