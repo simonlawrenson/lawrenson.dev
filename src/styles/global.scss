@@ -166,6 +166,16 @@ button,
     flex-direction: row-reverse;
     -ms-flex-align: center;
     align-items: center;
+.page-container {
+  width: 100%;
+  min-height: calc(100vh - 200px);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  @media (max-width: $screen-size-md - 1 ) {
+    min-height: calc(100vh - 102px);
   }
 }
 
