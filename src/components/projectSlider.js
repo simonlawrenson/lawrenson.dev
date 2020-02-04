@@ -23,7 +23,7 @@ export default () => (
             fluid( maxWidth: 330, quality: 100 ) {
               ...GatsbyImageSharpFluid
             }
-            }
+          }
         }
       }
     `}
