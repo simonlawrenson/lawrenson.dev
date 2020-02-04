@@ -14,7 +14,7 @@ export default () => (
         <h1>Get in touch.</h1>
         <p>If you'd like to work together or you just have a general question, feel free to get in touch.</p>
       </div>
-      <div className="col">
+      <div className="col col-gutter-right">
         <ContactForm></ContactForm>
       </div>
     </div>
