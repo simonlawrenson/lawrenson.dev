@@ -18,14 +18,6 @@ module.exports = {
   },
   /* Your site config here */
   plugins: [
-    `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-        omitGoogleFont: false
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -36,7 +28,30 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'techlogo',
+        path: `${__dirname}/src/images/tech-logos`,
+      }
+    },
     `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+        omitGoogleFont: false
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: `${__dirname}/src/images/tech-logos/`
+        },
+      },
+    },
+    `gatsby-plugin-sass`,
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
