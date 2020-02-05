@@ -8,6 +8,7 @@ module.exports = {
   /* Your SEO config here */
   siteMetadata: {
     title: `Melbourne Freelance Web Developer`,
+    siteUrl: `https://lawrenson.dev`,
     titleTemplate: `%s | Simon Lawrenson`,
     title: `%s | Simon Lawrenson`,
     description: `Melbourne based freelance Web Developer focused on crafting beautifully functional sites`,
@@ -19,6 +20,7 @@ module.exports = {
   /* Your site config here */
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
