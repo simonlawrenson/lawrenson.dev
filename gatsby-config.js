@@ -19,10 +19,19 @@ module.exports = {
   },
   /* Your site config here */
   plugins: [
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+        omitGoogleFont: false
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -37,23 +46,6 @@ module.exports = {
         path: `${__dirname}/src/images/tech-logos`,
       }
     },
-    `gatsby-plugin-transition-link`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-        omitGoogleFont: false
-      },
-    },
-    {
-      resolve: `gatsby-plugin-react-svg`,
-      options: {
-        rule: {
-          include: `${__dirname}/src/images/tech-logos/`
-        },
-      },
-    },
-    `gatsby-plugin-sass`,
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
