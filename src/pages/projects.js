@@ -11,7 +11,7 @@ export default () =>
     />
     <div className="container container-projects">
       <div className="col page-intro">
-        <h1>Projects</h1>
+        <h1>Projects.</h1>
         <p>These are some of my recent projects</p>
       </div>
       <div class="col">
