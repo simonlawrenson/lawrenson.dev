@@ -42,7 +42,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'techlogo',
+        name: 'tech-logo',
         path: `${__dirname}/src/images/tech-logos`,
       }
     },

@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
-
 function Navigation () {
   
   const [isExpanded, toggleExpansion] = useState(false)

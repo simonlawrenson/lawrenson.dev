@@ -32,10 +32,15 @@ $font-size-sm: 0.875rem;
 $font-size-md: 1rem;
 $font-size-lg: 20px;
 
-$screen-size-xl: 1200px;
-$screen-size-lg: 992px;
-$screen-size-md: 768px;
-$screen-size-sm: 576px;
+$screen-xl-up: 1200px;
+$screen-xl-dw: 1199px;
+$screen-lg-up: 992px;
+$screen-lg-dw: 991px;
+$screen-md-up: 768px;
+$screen-md-dw: 767px;
+$screen-sm-up: 576px;
+$screen-sm-dw: 575px;
+$screen-xs-dw: 350px;
 
 /****************************************
  * General Styling
@@ -75,7 +80,6 @@ a {
   position: relative;
   color: $brandWhite;
   text-decoration: none;
-  // transition: all 0.3s ease-out;
 
   &:before {
     content: " ";
@@ -116,10 +120,10 @@ h6,
 }
 
 h1,
-h1 {
+.h1 {
   font-size: 4.5rem;
   
-  @media (max-width: $screen-size-md - 1) {
+  @media (max-width: $screen-md-dw) {
     font-size: 3rem;
     margin-top: 14px;
     margin-bottom: 1rem;
@@ -160,7 +164,12 @@ button,
   padding-right: 15px;
   padding-left: 15px;
   
-  @media (min-width: $screen-size-md) {
+  @media (max-width: $screen-md-dw) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  @media (min-width: $screen-md-up) {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -169,15 +178,11 @@ button,
     padding-left: 30px;
   }
   
-  @media (min-width: $screen-size-lg) {
+  @media (min-width: $screen-lg-up) {
     padding-right: 60px;
     padding-left: 60px;
   }
   
-  @media (max-width: $screen-size-md - 1) {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
   
   &-logo,
   &-footer {
@@ -186,7 +191,7 @@ button,
     -ms-flex-align: center;
     align-items: center;
     
-    @media (min-width: $screen-size-md) {
+    @media (min-width: $screen-md-up) {
       height: 100px;
     }
   }
@@ -200,14 +205,15 @@ button,
     -webkit-box-direction: reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
-    @media (min-width: $screen-size-md ) {
+
+    @media (min-width: $screen-md-up) {
       -ms-flex-align: center;
       align-items: center;
     }
   }
 
   &-projects {
-    @media (max-width: $screen-size-lg - 1 ) {
+    @media (max-width: $screen-lg-dw) {
       -ms-flex-align: normal;
       align-items: normal;
     }
@@ -222,7 +228,7 @@ button,
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 
-  @media (max-width: $screen-size-md - 1 ) {
+  @media (max-width: $screen-md-dw) {
     min-height: calc(100vh - 102px);
   }
 }
@@ -231,16 +237,7 @@ button,
 .col {
   width: 100%;
 
-  @media (min-width: $screen-size-md) {
-    .header & {
-      width: auto;
-      -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-    }
-  } 
-  @media (min-width: $screen-size-sm) {
+  @media (min-width: $screen-sm-up) {
     footer & {
       display: -ms-flexbox;
       display: flex;
@@ -248,14 +245,25 @@ button,
       flex-wrap: wrap;
     }
   }
-  @media (min-width: $screen-size-lg) {
+
+  @media (min-width: $screen-md-up) {
+    .header & {
+      width: auto;
+      -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+    }
+  }
+
+  @media (min-width: $screen-lg-up) {
     width: auto;
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
     -ms-flex-positive: 1;
     flex-grow: 1;
     
-  &.col-gutter {
+    &.col-gutter {
       padding: 0 15px;
     }
     
@@ -268,11 +276,7 @@ button,
     }
   }
 
-  @media (max-width: $screen-size-lg - 1) {
-    .project-component-container & {
-      width: 100%; 
-    }
-
+  @media (max-width: $screen-lg-dw) {
     .container-projects &,
     .container-contact &  {
       width: 100%;
@@ -280,52 +284,45 @@ button,
       flex-basis: 100%;
       flex-grow: 1;
     }
+    
+    .project-component-container & {
+      width: 100%; 
+    }
   }
 }
 
 /****************************************
  * Header Styling
  ***************************************/
-.wrapper {
-  // padding-top: 64px;
-}
-.header {
-  @media (max-width: $screen-size-md - 1) {
-    // width: 100%;
-    // position: fixed;
-    // top: 0;
-    // background-image: linear-gradient(-300deg, #ff414e 0%, #ff8928 100%);
-    // z-index: 50;
-  }
-}
 .col-logo {
-  @media (max-width: $screen-size-lg - 1) {
+  @media (max-width: $screen-lg-dw) {
     border-left: solid 2px $brandWhite;
   }
-  @media (max-width: $screen-size-md - 1) {
+
+  @media (max-width: $screen-md-dw) {
     width: 100%;
     order: 12;
   }
 }
+
 .col-navigation {
-  @media (max-width: $screen-size-md - 1) {
+  @media (max-width: $screen-md-dw) {
     order: 1;
   }
 }
+
  .logo {
   display: block;
   font-family: $brandFontBody;
   font-size: $font-size-md;
   margin: 0 0 .5rem 0;
+  padding-left: 15px;
   
-  @media (max-width: $screen-size-lg - 1) {
-    padding-left: 15px;
-  }
-  
-  @media (min-width: $screen-size-lg) {
+  @media (min-width: $screen-lg-up) {
     display: inline;
     margin: 0;
     padding-right: 15px;
+    padding-left: 0;
   }
 }
 
@@ -334,31 +331,26 @@ button,
   font-family: $brandFontBody;
   font-size: $font-size-md;
   margin: 0;
+  padding-left: 15px;
   
-  @media (max-width: $screen-size-lg - 1) {
-    padding-left: 15px;
-  }
-  
-  @media (min-width: $screen-size-lg) {
+  @media (min-width: $screen-lg-up) {
     display: inline;
     border-left: solid 2px $brandWhite;
-    padding-left: 15px;
   }
 }
 
 .navigation-toggler {
-  font-size: 1.25rem;
-  line-height: 1;
-  background-color: transparent;
-  border: none;
-  border-radius: 0;
-
   width: 36px;
   height: 30px;
   position: fixed;
   top: 14px;
   top: 14.5px;
   right: 15px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 1.25rem;
+  line-height: 1;
   padding: 0;
   z-index: 200;
 
@@ -437,7 +429,7 @@ button,
     outline: 5px auto -webkit-focus-ring-color;
   }
 
-  @media (min-width: $screen-size-md) {
+  @media (min-width: $screen-md-up) {
     display: none;
   }
 }
@@ -449,11 +441,18 @@ button,
     margin-left: 15px;
 
     &.active {
-      color: $brandPrimary;
+      &:before {
+        visibility: visible;
+        width: 100%;
+        transition: all 0.3s ease-out;
+      }
     }
   }
 
-  @media (max-width: $screen-size-md - 1) {    
+  @media (max-width: $screen-md-dw) {    
+    width: 60%;
+    height: 100%;
+    
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-around;
@@ -468,8 +467,6 @@ button,
     display: -ms-flexbox;
     display: flex;
 
-    width: 60%;
-    height: 100%;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -512,10 +509,10 @@ button,
     }
   }
 
-  @media (max-width: $screen-size-sm - 1) {
+  @media (max-width: $screen-xs-dw) {
+    width: 90%;
     padding-right: 15px;
     padding-left: 15px;
-    width: 90%;
   }
 }
 
@@ -523,24 +520,28 @@ button,
  * Page Styling
  ***************************************/
  .page-intro {
-  font-size: 3rem;
+  width: calc(100% - 35px);
+  font-size: 1.875rem;
   font-weight: 100;
-  text-align: right;
-
-  @media (min-width: $screen-size-md) {
+  text-align: left;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  
+  
+  @media (min-width: $screen-md-up) {
+    width: auto;
+    font-size: 3rem;
+    text-align: right;
+    
     .container-welcome & {
       max-width: 90%;
+      margin-right: 0;
       margin-left: auto;
     }
   }
-  @media (max-width: $screen-size-lg - 1) {
-    margin-bottom: 2rem;
-  }
-  @media (max-width: $screen-size-md - 1) {
-    width: calc(100% - 35px);
-    font-size: 1.875rem;
-    text-align: left;
-    margin-right: auto;
+
+  @media (max-width: $screen-lg-up) {
+    margin-bottom: 0;
   }
 }
 
@@ -548,10 +549,12 @@ button,
   display: inline-block;
   font-size: 3rem;
   margin-right: 10px;
-  @media (min-width: $screen-size-md) {
+
+  @media (min-width: $screen-md-up) {
     text-align: center;
   }
-  @media (min-width: $screen-size-lg) {
+
+  @media (min-width: $screen-lg-up) {
     display: block;
     margin-bottom: 0.75rem;
 
@@ -566,14 +569,14 @@ button,
 }
 
 .container-projects > .col {
-  @media (min-width: $screen-size-lg) {
+  @media (min-width: $screen-lg-up) {
     max-width: 50%;
   }
 }
 
 .project-slider {
-  display: block;
   width: 100%;
+  display: block;
   position: relative;
   overflow: hidden;
 
@@ -612,55 +615,58 @@ button,
       text-decoration: none;
       
       &:before {
-        visibility: visible;
         width: 100%;
+        visibility: visible;
         transition: all 0.3s ease-out;
       }
     }
   }
+
   .slick-prev {
     display: none;
   }
 }
 
 .project-tech {
-  @media (max-width: $screen-size-lg - 1) {
+  @media (max-width: $screen-lg-dw) {
     margin-top: 1.5rem;
     margin-bottom: 1rem;
   }
 }
 
 .project-component-container {
-  @media (min-width: $screen-size-lg) {
-    display: -ms-flexbox;
-    display: flex;
+  @media (min-width: $screen-lg-up) {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     -ms-flex-align: center;
     align-items: center;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
+
 .project-tech-title {
-  @media (min-width: $screen-size-sm) {
-    display: -ms-flexbox;
-    display: flex;
+  @media (min-width: $screen-sm-up) {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     -ms-flex-align: center;
     align-items: center;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
+
 .project-component-container {
   -ms-flex-align: stretch;
   align-items: stretch;
 
   .col-gutter-left {
-    display: -ms-flexbox;
-    display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
+    display: -ms-flexbox;
+    display: flex;
 
-    @media (min-width: $screen-size-md) {
+    @media (min-width: $screen-md-up) {
       padding-left: 0;
     }
   }
@@ -668,7 +674,8 @@ button,
 
 .project-tech-title .spacer {
   margin: 0 15px 0 0;
-  @media (min-width: $screen-size-sm) {
+
+  @media (min-width: $screen-sm-up) {
     margin: 0 15px;
   }
 }
@@ -680,6 +687,7 @@ button,
 .project-next {
   margin-top: auto;
   margin-right: auto;
+
   svg {
     font-size: $font-size-lg;
     vertical-align: bottom;
@@ -690,16 +698,17 @@ button,
  * Contact Form Styling
  ***************************************/
 .contact-form {
-  margin-bottom: 0;
-
-  @media (max-width: $screen-size-md - 1) {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
+  
+  @media (max-width: $screen-md-up) {
+    margin-bottom: 0;
   }
 
   .label {
     display: block;
     margin-bottom: 0.5rem;
   }
+
   input,
   textarea {
     width: 100%;
@@ -762,16 +771,14 @@ button,
 .col-social {
   text-align: right;
   justify-content: flex-end;
+
   p {
     font-size: 24px;
     display: inline-block;
     margin-right: 1rem;
   }
 }
-.container-copyright {
-  text-align: center;
-  font-size: $font-size-sm;
-}
+
 /****************************************
  * Animation Styling
  ***************************************/

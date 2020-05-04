@@ -11,8 +11,8 @@ export default () => (
     <div className="container container-welcome">
       <div className="page-intro">
         <h1>Welcome.</h1>
-        <p>Hello! I'm Simon, a freelance web developer based in Melbourne.</p>
-        <p>I build exceptional websites that provide a high level of flexibility &amp; functionality.</p>
+        <p>Hello! I'm Simon Lawrenson, a freelance web developer based in Melbourne.</p>
+        <p>I have a passion for building exceptional websites that provide a high level of flexibility &amp; functionality.</p>
       </div>
     </div>
   </Layout>
